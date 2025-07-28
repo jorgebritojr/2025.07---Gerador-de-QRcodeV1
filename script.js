@@ -22,6 +22,7 @@ document.getElementById("twitter-share").href = `https://twitter.com/intent/twee
 
   // 👇 Mostrar os links de compartilhamento
   document.getElementById("compartilhar").style.display = "block";
+  document.getElementById("compartilhar").setAttribute("aria-hidden", "false");
     }
 
 
