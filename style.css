@@ -37,3 +37,15 @@ body {
 #compartilhar a:hover, #compartilhar button:hover {
   background-color: #388e3c;
 }
+
+#compartilhar {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  display: none;
+}
+
+#compartilhar.mostrar {
+  display: block;
+  opacity: 1;
+}
+

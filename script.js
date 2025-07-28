@@ -21,7 +21,9 @@ document.getElementById("facebook-share").href = `https://www.facebook.com/share
 document.getElementById("twitter-share").href = `https://twitter.com/intent/tweet?text=${encoded}`;
 
   // 👇 Mostrar os links de compartilhamento
-  document.getElementById("compartilhar").style.display = "block";
+  const compartilhar = document.getElementById("compartilhar");
+  compartilhar.classList.add("mostrar");
+
   document.getElementById("compartilhar").setAttribute("aria-hidden", "false");
     }
 
