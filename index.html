@@ -35,9 +35,12 @@
   <br>
   <button onclick="gerarQRCode()">Gerar QR Code</button>
   <button onclick="baixarQRCode()">Baixar PNG</button>
+  <button onclick="baixarPDF()">Baixar PDF</button>
+
   <div id="qrcode"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script>
     let qr;
     function gerarQRCode() {
@@ -78,6 +81,27 @@
         alert("Por favor, gere um QR Code antes de baixar.");
       }
     }
+      async function baixarPDF() {
+    const container = document.getElementById("qrcode");
+    const canvas = container.querySelector("canvas");
+
+    if (!canvas) {
+      alert("Por favor, gere um QR Code antes de baixar.");
+      return;
+    }
+
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF();
+
+    const imgData = canvas.toDataURL("image/png");
+    pdf.addImage(imgData, 'PNG', 15, 40, 180, 180); // posição e tamanho
+    pdf.save("qrcode.pdf");
+  }
+
+
   </script>
+
+
+
 </body>
 </html>
