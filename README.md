@@ -18,10 +18,11 @@ Este projeto é um gerador simples de códigos QR (2D) feito com HTML, CSS e Jav
 
 ---
 
+
 ## 📷 Demonstração
 
-![Exemplo de uso](https://upload.wikimedia.org/wikipedia/commons/8/8a/Qr-code-ver2.png)  
-*(Imagem ilustrativa de um QR Code)*
+![Demonstração do Gerador de QR Code](https://raw.githubusercontent.com/jorgebritojr/2025.07---Gerador-de-QRcodeV1/main/screenshot.png)
+
 
 ---
 
