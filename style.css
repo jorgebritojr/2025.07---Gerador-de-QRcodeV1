@@ -40,12 +40,13 @@ body {
 
 #compartilhar {
   opacity: 0;
+  visibility: hidden;
   transition: opacity 0.5s ease-in-out;
-  display: none;
+  margin-top: 20px;
 }
 
 #compartilhar.mostrar {
-  display: block;
   opacity: 1;
+  visibility: visible;
 }
 
