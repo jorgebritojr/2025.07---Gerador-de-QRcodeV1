@@ -15,6 +15,7 @@
         height: 200,
       });
     }
+document.getElementById("preview").textContent = `Conteúdo: ${conteudo}`;
 
     function baixarQRCode() {
       const container = document.getElementById("qrcode");
