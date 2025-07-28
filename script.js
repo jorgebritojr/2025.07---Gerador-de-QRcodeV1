@@ -14,8 +14,9 @@
         width: 200,
         height: 200,
       });
+      document.getElementById("preview").textContent = `Conteúdo: ${conteudo}`;
     }
-document.getElementById("preview").textContent = `Conteúdo: ${conteudo}`;
+
 
     function baixarQRCode() {
       const container = document.getElementById("qrcode");
