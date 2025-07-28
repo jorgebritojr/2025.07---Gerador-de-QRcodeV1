@@ -19,6 +19,9 @@
 document.getElementById("whatsapp-share").href = `https://wa.me/?text=${encoded}`;
 document.getElementById("facebook-share").href = `https://www.facebook.com/sharer/sharer.php?u=${encoded}`;
 document.getElementById("twitter-share").href = `https://twitter.com/intent/tweet?text=${encoded}`;
+
+  // 👇 Mostrar os links de compartilhamento
+  document.getElementById("compartilhar").style.display = "block";
     }
 
 
