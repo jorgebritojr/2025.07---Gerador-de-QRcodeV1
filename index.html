@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de QR Code</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+      background: #f9f9f9;
+    }
+    input {
+      width: 300px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+      margin-right: 5px;
+    }
+    #qrcode {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Gerador de Código QR</h1>
+  <input type="text" id="text" placeholder="Digite o texto ou URL">
+  <br>
+  <button onclick="gerarQRCode()">Gerar QR Code</button>
+  <button onclick="baixarQRCode()">Baixar PNG</button>
+  <div id="qrcode"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+  <script>
+    let qr;
+    function gerarQRCode() {
+      const conteudo = document.getElementById("text").value;
+      const container = document.getElementById("qrcode");
+      container.innerHTML = ""; // Limpa QR anterior
+
+      if (!conteudo.trim()) {
+        alert("Digite um texto ou URL.");
+        return;
+      }
+
+      qr = new QRCode(container, {
+        text: conteudo,
+        width: 200,
+        height: 200,
+      });
+    }
+
+    function baixarQRCode() {
+      const container = document.getElementById("qrcode");
+
+      // Tenta encontrar um canvas ou img gerado pelo QRCode.js
+      const canvas = container.querySelector("canvas");
+      const img = container.querySelector("img");
+
+      if (canvas) {
+        const link = document.createElement("a");
+        link.download = "qrcode.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      } else if (img) {
+        const link = document.createElement("a");
+        link.download = "qrcode.png";
+        link.href = img.src;
+        link.click();
+      } else {
+        alert("Por favor, gere um QR Code antes de baixar.");
+      }
+    }
+  </script>
+</body>
+</html>
