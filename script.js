@@ -15,6 +15,10 @@
         height: 200,
       });
       document.getElementById("preview").textContent = `Conteúdo: ${conteudo}`;
+      const encoded = encodeURIComponent(conteudo);
+document.getElementById("whatsapp-share").href = `https://wa.me/?text=${encoded}`;
+document.getElementById("facebook-share").href = `https://www.facebook.com/sharer/sharer.php?u=${encoded}`;
+document.getElementById("twitter-share").href = `https://twitter.com/intent/tweet?text=${encoded}`;
     }
 
 
@@ -55,3 +59,16 @@
     pdf.addImage(imgData, 'PNG', 15, 40, 180, 180); // posição e tamanho
     pdf.save("qrcode.pdf");
   }
+
+  function copiarLink() {
+  const conteudo = document.getElementById("text").value;
+  if (!conteudo.trim()) {
+    alert("Nada para copiar.");
+    return;
+  }
+  navigator.clipboard.writeText(conteudo).then(() => {
+    alert("Link copiado para a área de transferência!");
+  }).catch(err => {
+    alert("Erro ao copiar link: " + err);
+  });
+}
